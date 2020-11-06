@@ -1,19 +1,121 @@
-<link rel="stylesheet" href="resultStyle.css">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="../../static/css/resultStyle.css">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic,700,700italic' rel='stylesheet' type='text/css'>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge"> <title>Result</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <!-- ì°¨íŠ¸ ë§í¬ -->
+    <meta charset="UTF-8">
+</head>
 
 
 
+  
 <section>
-  <span>°¡Â§Áö ÁøÂ¥ÀÎÁö Ç¥ÁöÇÏ´Â À§Ä¡ <br><br><br> ½ºÅ©·ÑÇÏ¸é °ü·Ã±â»ç ³ª¿È</span>
-</section>
-<header>
-  <h1>Site Name</h1>
-  <nav>
-    <a href=#>About</a>
-    <a href=#>Services</a>
-    <a href=#>Contact</a>
-  </nav>
-</header>
+<h1 class="charts--headline">{{input_text}}</h1>
+<div class="charts--container">
+  <ul>
+    <class="chart">
+      <h3 class="chart--subHeadline">Result Chart</h3>
+      <h2 class="chart--headline">{{ result }}</h2>
+      <!-- ë¶€íŠ¸ìŠ¤íŠ¸ëž© -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <!-- ì°¨íŠ¸ -->
+
+    <script> // chart colors
+        var colors = ['red','skyblue','#c3e6cb','#fd6a74']; /* 3 donut charts */
+        var donutOptions = { cutoutPercentage: 30, //ë„ë„›ë‘ê»˜ : ê°’ì´ í´ìˆ˜ë¡ ì–‡ì•„ì§
+             legend: {position:'bottom', padding:5, labels: {pointStyle:'circle', usePointStyle:true}}
+        };
+        // donut 1
+        var chDonutData1 = { labels: ['True', 'False'], datasets: [ { backgroundColor: colors.slice(0,3), borderWidth: 0, data: [{{result}}, 1-{{ result }}] } ] };
+        var chDonut1 = document.getElementById("chDonut1");
+        if (chDonut1) { new Chart(chDonut1, { type: 'pie', data: chDonutData1, options: donutOptions }); }
+
+    </script>
+  </ul>
+</div>
+
+
+
+
+
+
+
 <article>
-  <h1>½Å±ÔÈ®Áø 75¸í ÀÌÆ²Â° µÎÀÚ¸®,Áö¿ª 46¸í-ÇØ¿Ü 29¸í¡¦ÇÛ·¯À© º¯¼ö</h1>
-  <strong style="display:block;overflow:hidden;position:relative;margin:33px 20px 10px 3px;padding-left:11px;font-weight:bold;border-left: 2px solid #141414;">Áö¿ª¹ß»ý 2ÁÖ ¸¸¿¡ 50¸í ¾Æ·¡·Î¡¦´©Àû 2¸¸6Ãµ807¸í, »ç¸ÁÀÚ ÃÑ 472¸í<br>°æ±â 27¸í-¼­¿ï 22¸í-Ãæ³² 7¸í-±¤ÁÖ 2¸í-ÀÎÃµ µî 5°÷ °¢ 1¸í ¾ç¼º ÆÇÁ¤<br>Á÷Àå-ÇÐ±³-¸ðÀÓ 'ÀÏ»ó°¨¿°' Áö¼Ó¡¦¾îÁ¦ 1¸¸3Ãµ209°Ç °Ë»ç, ¾ç¼º·ü 0.57%</strong><div><br></div><iframe src="https://tv.naver.com/embed/16522973" frameborder="no" scrolling="no" marginwidth="0" marginheight="0" width="544" height="306" allow="autoplay" allowfullscreen=""></iframe><br><br><span class="end_photo_org"><img src="https://imgnews.pstatic.net/image/001/2020/11/03/PYH2020102908440001300_P4_20201103104644224.jpg?type=w647" alt=""><em class="img_desc"><br>¼±º°Áø·á¼Ò<br>[¿¬ÇÕ´º½º ÀÚ·á»çÁø]</em></span><br><br>(¼­¿ï=¿¬ÇÕ´º½º) ±è¿¹³ª ±âÀÚ = ¼öµµ±ÇÀ» ºñ·ÔÇØ °÷°÷¿¡¼­ ½ÅÁ¾ ÄÚ·Î³ª¹ÙÀÌ·¯½º °¨¿°Áõ(ÄÚ·Î³ª19) Áý´Ü¹ßº´ ¿©ÆÄ°¡ ÀÌ¾îÁö´Â °¡¿îµ¥ 3ÀÏ ÀÏÀÏ ½Å±Ô È®ÁøÀÚ ¼ö´Â 70¸í´ë¿¡ ¸Ó¹°·¶´Ù. <br><br>    Àü³¯(97¸í)¿¡ ÀÌ¾î ÀÌÆ²Â° µÎ ÀÚ¸´¼ö¸¦ ÀÌ¾î°£ °ÍÀÌ´Ù. <br><br>    ±×·¯³ª ÃÖ±Ù ¿ä¾ç½Ã¼³¡¤¿ä¾çº´¿øÀ» ºñ·ÔÇØ °¡Á·ÀÌ³ª ÁöÀÎ ¸ðÀÓ, Á÷Àå, ÇÐ±³ µî ÀÏ»ó °÷°÷¿¡¼­ Áý´Ü°¨¿°ÀÌ ÀÌ¾îÁö°í ÀÖ´Â µ¥´Ù °¡À»Ã¶ ´ÜÇ³°´°ú ÇÔ²² ¸¹Àº ÀÎÆÄ°¡ ¸ô·È´ø 'ÇÛ·¯À© µ¥ÀÌ'(10¿ù 31ÀÏ)ÀÇ ¿µÇâÀÌ º»°ÝÈ­ÇÏÁö ¾ÊÀº ÅÍ¶ó ¾ðÁ¦µç È®ÁøÀÚ ±Ô¸ð°¡ Ä¿Áú ¼ö ÀÖ´Â »óÈ²ÀÌ´Ù. 'ÇÛ·¯À© °¨¿°'ÀÌ ¹ß»ýÇßÀ» °æ¿ì °ü·Ã È®ÁøÀÚ´Â ÀÌ¹ø ÁÖ Áß¹ÝºÎÅÍ ÇÏ³ªµÑ ³ª¿Ã °ÍÀ¸·Î º¸ÀÎ´Ù.<br><br><strong style="display:block;margin:10px 0;padding:9px 16px 11px 16px;border-top:2px solid #000;border-bottom:1px solid #000;"> Áö¿ª¹ß»ý 2ÁÖ¸¸¿¡ 50¸í ¾Æ·¡, ¿©ÀüÈ÷ ¼öµµ±Ç ÁýÁß¡¦»õ °Å¸®µÎ±â Ã¼°è¿¡¼­µµ 1´Ü°è ¼öÁØ </strong>    Áß¾Ó¹æ¿ª´ëÃ¥º»ºÎ´Â 3ÀÏ 0½Ã ±âÁØÀ¸·Î ÄÚ·Î³ª19 ½Å±Ô È®ÁøÀÚ°¡ 75¸í ´Ã¾î ´©Àû 2¸¸6Ãµ807¸íÀÌ¶ó°í ¹àÇû´Ù.<br><br>    Àü³¯(97¸í)º¸´Ù 22¸í ÁÙ¾ú´Ù.<br><br>    ¾Õ¼­ Áö³­´Þ 21ÀÏºÎÅÍ ÀÌ³¯±îÁö ÃÖ±Ù 2ÁÖ°£ ½Å±Ô È®ÁøÀÚ ¼ö¸¦ ÀÏº°·Î º¸¸é 89¸í¡æ121¸í¡æ155¸í¡æ77¸í¡æ61¸í¡æ119¸í¡æ88¸í¡æ103¸í¡æ125¸í¡æ113¸í¡æ127¸í¡æ124¸í¡æ97¸í¡æ75¸í µîÀ¸·Î, 100¸í ¾ÈÆÆ¿¡¼­ µî¶ôÀ» °ÅµìÇÏ°í ÀÖ´Ù. ÀÌ ±â°£ ¼¼ ÀÚ¸´¼ö¸¦ ±â·ÏÇÑ ³¯Àº 8Â÷·Ê´Ù. <br><br>    ÀÌ³¯ ½Å±Ô È®ÁøÀÚ 75¸íÀÇ °¨¿°°æ·Î¸¦ º¸¸é Áö¿ª¹ß»ýÀÌ 46¸í, ÇØ¿ÜÀ¯ÀÔÀÌ 29¸íÀÌ´Ù. <br><br>    Áö¿ª»çÈ¸ ³»¿¡¼­ °¨¿°µÈ °ÍÀ¸·Î ÃßÁ¤µÇ´Â È®ÁøÀÚ´Â ÀÌ´Þ µé¾î 101¸í¡æ79¸í¡æ46¸íÀ» ±â·ÏÇØ Åë°è»ó °¨¼ÒÇÏ´Â Èå¸§À» º¸ÀÌ°í ÀÖ´Ù. Áö¿ª¹ß»ý È®ÁøÀÚ°¡ 50¸í ¾Æ·¡·Î ¶³¾îÁø °ÍÀº Áö³­´Þ 20ÀÏ(41¸í) ÀÌÈÄ 2ÁÖ ¸¸ÀÌ´Ù.<br><br>    È®ÁøÀÚ°¡ ³ª¿Â Áö¿ªÀ» º¸¸é ¼­¿ï 21¸í, °æ±â 15¸í µî ¼öµµ±ÇÀÌ 36¸íÀ¸·Î ¿©ÀüÈ÷ ´ëºÎºÐÀ» Â÷ÁöÇß´Ù. ¼öµµ±Ç ¿Ü¿¡´Â Ãæ³² 6¸í, ±¤ÁÖ 2¸í, °­¿ø°ú ÃæºÏ °¢ 1¸íÀÌ´Ù. <br><br>    Çö Ãß¼¼°¡ ÀÌ¾îÁö¸é ¿À´Â 7ÀÏºÎÅÍ ½ÃÇàµÇ´Â »õ '»çÈ¸Àû °Å¸®µÎ±â' Ã¼°è¿¡¼­µµ Àü±¹Àº 1´Ü°è°¡ Àû¿ëµÉ °ÍÀ¸·Î º¸ÀÎ´Ù. 1´Ü°è Áö¿ª¹ß»ý ½Å±ÔÈ®ÁøÀÚ ±âÁØÀº ÃÖ±Ù 1ÁÖ°£ ÀÏÆò±Õ ±âÁØÀ¸·Î ¼öµµ±ÇÀº 100¸í ¹Ì¸¸, ºñ¼öµµ±ÇÀº 10¡­30¸í ¹Ì¸¸ÀÌ´Ù.<br><br>    ÁÖ¿ä ¹ßº´ »ç·Ê¸¦ º¸¸é 'ÀÏ»ó °¨¿°'ÀÌ ¸¹¾Ò´Ù. <br><br>    °æ±â ±¤ÁÖ½ÃÀÇ ÇÑ °¡Á· ¸ðÀÓ°ú °ü·ÃÇØ¼­ Áö³­´Þ 31ÀÏ Ã¹ È®ÁøÀÚ(ÁöÇ¥È¯ÀÚ)°¡ ³ª¿Â µÚ Á¢ÃËÀÚ¸¦ Á¶»çÇÏ´ø Áß 21¸íÀÌ ÀÕ´Þ¾Æ ¾ç¼º ÆÇÁ¤À» ¹Þ¾Æ Àü³¯ ³·±îÁö ÃÑ 22¸íÀÌ È®ÁøµÆ´Ù. <br><br>    ¶Ç ÆÄÁÖ½ÃÀÇ ÇÑ ¹°·ù¹è¼Û¾÷Ã¼¿Í °ü·ÃÇØ¼­´Â ÃÑ 13¸íÀÌ °¨¿°µÆ°í, Ãæ³² ¾Æ»êÀÇ ÇÑ Á÷Àå°ú °ü·ÃÇØ¼­µµ Á÷Àå µ¿·á¸¦ Æ÷ÇÔÇØ ÁÖÁ¡ Á¾»çÀÚ ¹× ¹æ¹®ÀÚ, »ç¿ì³ª ÀÌ¿ë°´ µî ÃÑ 19¸íÀÌ È®ÁøµÆ´Ù. <br><br>    ÀÌ ¹Û¿¡µµ ¼­¿ï À½¾Ç ±³½À °ü·Ã(´©Àû 18¸í), µ¿´ë¹®±¸ ¿¡ÀÌ½ºÈñ¸ÁÄÉ¾î¼¾ÅÍ(13¸í), °­³²±¸ ·°Å°»ç¿ì³ª(37¸í), ÀºÆò±¸ ¹æ¹®±³»ç(18¸í) µî °÷°÷¿¡¼­ È®»ê¼¼°¡ Àæ¾ÆµéÁö ¾Ê´Â ¾ç»óÀÌ´Ù. <br><br><span class="end_photo_org"><img src="https://imgnews.pstatic.net/image/001/2020/11/03/PYH2020102212070001300_P4_20201103104644234.jpg?type=w647" alt=""><em class="img_desc">ÀÎÃµ±¹Á¦°øÇ×<br>[¿¬ÇÕ´º½º ÀÚ·á»çÁø]</em></span><br><br>    <strong style="display:block;margin:10px 0;padding:9px 16px 11px 16px;border-top:2px solid #000;border-bottom:1px solid #000;"> ÇØ¿ÜÀ¯ÀÔ, Àü³¯º¸´Ù 11¸í ´Ã¾î¡¦¾îÁ¦ ÇÏ·ç °Ë»ç°Ç¼ö 1¸¸3Ãµ209°Ç, ¾ç¼º·ü 0.57%</strong>    ÇØ¿ÜÀ¯ÀÔ È®ÁøÀÚ´Â 29¸íÀ¸·Î, Àü³¯(18¸í)º¸´Ù 11¸í ´Ã¾ú´Ù. <br><br>    È®ÁøÀÚ °¡¿îµ¥ 12¸íÀº °øÇ×ÀÌ³ª Ç×¸¸ ÀÔ±¹ °Ë¿ª °úÁ¤¿¡¼­ È®ÀÎµÆ´Ù. ³ª¸ÓÁö 17¸íÀº °æ±â(12¸í), ¼­¿ï¡¤ºÎ»ê¡¤ÀÎÃµ¡¤Ãæ³²¡¤°æ³²(°¢ 1¸í) Áö¿ª °ÅÁÖÁö³ª ÀÓ½Ã»ýÈ°½Ã¼³¿¡¼­ ÀÚ°¡°Ý¸®ÇÏ´ø Áß ¾ç¼º ÆÇÁ¤À» ¹Þ¾Ò´Ù. <br><br>    Áö¿ª¹ß»ý°ú ÇØ¿ÜÀ¯ÀÔ(°Ë¿ª Á¦¿Ü)À» ÇÕÄ¡¸é ¼­¿ï 22¸í, °æ±â 27¸í, ÀÎÃµ 1¸í µî ¼öµµ±ÇÀÌ 50¸íÀÌ´Ù. Àü±¹ÀûÀ¸·Î´Â 9°³ ½Ãµµ¿¡¼­ È®ÁøÀÚ°¡ »õ·Î ³ª¿Ô´Ù. <br><br>    ÇÑÆí »ç¸ÁÀÚ´Â Àü³¯º¸´Ù 4¸í ´Ã¾î ´©Àû 472¸íÀÌ µÆ´Ù. ±¹³» Æò±Õ Ä¡¸í·üÀº 1.76%´Ù. <br><br>    ÄÚ·Î³ª19·Î È®ÁøµÈ ÀÌÈÄ »óÅÂ°¡ À§ÁßÇÏ°Å³ª ¾ÇÈ­ÇÑ 'À§ÁßÁõ' È¯ÀÚ´Â ÇÏ·ç Àüº¸´Ù 3¸í ´Ã¾î 52¸íÀÌ´Ù.<br><br>    Àü³¯ ÇÏ·ç ÀÌ·ïÁø ÄÚ·Î³ª19 Áø´Ü °Ë»ç °Ç¼ö´Â 1¸¸3Ãµ209°ÇÀ¸·Î, Á÷ÀüÀÏ  6Ãµ20°Çº¸´Ù 7Ãµ189°Ç ¸¹¾Ò´Ù. <br><br>    Àü³¯ °Ë»ç°Ç¼ö ´ëºñ È®ÁøÀÚ¸¦ °è»êÇÑ ¾ç¼º·üÀº 0.57%(1¸¸3Ãµ209¸í Áß 75¸í)·Î, Á÷ÀüÀÏ 1.61%(6Ãµ20¸í Áß 97¸í)º¸´Ù ´ëÆø ÇÏ¶ôÇß´Ù. ÀÌ³¯ 0½Ã ±âÁØ ´©Àû ¾ç¼º·üÀº 1.01%(264¸¸9Ãµ859¸í Áß 2¸¸6Ãµ807¸í)´Ù.<br><br>    ¹æ¿ª´ç±¹Àº ¸ÅÀÏ ¿ÀÀü ´çÀÏ 0½Ã¸¦ ±âÁØÀ¸·Î ±¹³» ÄÚ·Î³ª19 ÀÏº° È¯ÀÚ Åë°è¸¦ ¹ßÇ¥ÇÑ´Ù. . 
+
+
+  
+<!-- The Timeline -->
+
+<ul class="timeline">
+
+	<!-- Item 1 -->
+	<li>
+		<div class="direction-r">
+			<div class="flag-wrapper">
+				<span class="flag">{{ news_text0 }}</span>
+			
+			</div>
+			<div class="desc">{{ news_text0 }}</div>
+		</div>
+	</li>
+  
+	<!-- Item 2 -->
+	<li>
+		<div class="direction-l">
+			<div class="flag-wrapper">
+				<span class="flag">{{ news_text1 }}</span>
+			
+			</div>
+			<div class="desc">{{ news_text1 }}</div>
+		</div>
+	</li>
+
+	<!-- Item 3 -->
+	<li>
+		<div class="direction-r">
+			<div class="flag-wrapper">
+				<span class="flag">{{ news_text2 }}</span>
+			
+			</div>
+			<div class="desc">{{ news_text2 }}</div>
+		</div>
+	</li>
+	<!-- Item 4 -->
+	<li>
+		<div class="direction-l">
+			<div class="flag-wrapper">
+				<span class="flag">{{ news_text3 }}</span>
+			
+			</div>
+			<div class="desc">{{ news_text3 }}</div>
+		</div>
+	</li>
+	<!-- Item 5 -->
+	<li>
+		<div class="direction-r">
+			<div class="flag-wrapper">
+				<span class="flag">{{ news_text4 }}</span>
+			
+			</div>
+			<div class="desc">{{ news_text4 }}</div>
+		</div>
+	</li>
+</ul>
 </article>
+
+</html>
+
+
+
+
+
+
+
+

@@ -1,5 +1,5 @@
 html {
-  background: #1f80aa;
+  background: #000000;
 }
 
 body {
@@ -55,9 +55,9 @@ button {
   z-index: 1;
   width: 50px;
   border: 0 none;
-  background: #ceb980;
+  background: #5f5e5e;
   cursor: pointer;
-  border-radius: 0 5px 5px 0;  
+  border-radius: 0 5px 5px 0;
   -webkit-transform: translate(-50px, 0);
       -ms-transform: translate(-50px, 0);
           transform: translate(-50px, 0);
@@ -67,7 +67,7 @@ button {
 
 .fa-search {
   font-size: 1.4rem;
-  color: #29abe2;
+  color: #b3b4bb;
   z-index: 3;
   top: 25%;
   -webkit-transform: translate(-190px, 0);
@@ -78,4 +78,3 @@ button {
   -webkit-transition: all 0.1s ease-in-out;
           transition: all 0.1s ease-in-out;
 }
-
